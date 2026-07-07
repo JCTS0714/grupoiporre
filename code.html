@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Grupo Iporre | Administración Integral de Edificios en Lima</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container-high": "#e6e8f3",
+                        "secondary": "#7043c2",
+                        "deep-navy": "#0B1B32",
+                        "background": "#f9f9ff",
+                        "primary-fixed-dim": "#adc7ff",
+                        "surface-container-low": "#f1f3fe",
+                        "outline": "#717786",
+                        "on-primary-container": "#fefcff",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-variant": "#e0e2ed",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#2d3039",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#414754",
+                        "on-secondary-fixed": "#250059",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#5726a8",
+                        "surface-container": "#ebedf9",
+                        "tertiary": "#9e3d00",
+                        "primary-container": "#0070ea",
+                        "vibrant-violet": "#8A2BE2",
+                        "secondary-fixed": "#ebddff",
+                        "surface-dim": "#d7d9e5",
+                        "on-primary-fixed-variant": "#004493",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "on-tertiary-container": "#fffbff",
+                        "on-background": "#181c23",
+                        "primary": "#0059bb",
+                        "on-surface": "#181c23",
+                        "outline-variant": "#c1c6d7",
+                        "secondary-container": "#a97dff",
+                        "inverse-primary": "#adc7ff",
+                        "inverse-on-surface": "#eef0fb",
+                        "electric-cyan": "#00D4FF",
+                        "surface-tint": "#005bc0",
+                        "on-primary-fixed": "#001a41",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-bright": "#f9f9ff",
+                        "surface": "#f9f9ff",
+                        "secondary-fixed-dim": "#d3bbff",
+                        "neutral-gray": "#F8F9FA",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#c64f00",
+                        "surface-container-highest": "#e0e2ed",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#3d0088"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "caption": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(11, 27, 50, 0.8) 0%, rgba(0, 89, 187, 0.4) 100%);
+        }
+
+        .custom-shadow {
+            box-shadow: 0 16px 32px -4px rgba(11, 27, 50, 0.04);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+    <!-- Top Navigation -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant/20 shadow-sm">
+        <div class="flex justify-between items-center h-30 px-gutter max-w-container-max mx-auto">
+            <div class="flex items-center gap-3">
+                <img alt="Grupo Iporre Logo" class="h-24 w-24 rounded-lg object-contain bg-white p-1"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqCyM-G5ivq_FQJPL0WCXNspUXj4cdB5nNRAhd0zEp4JUko_QMo77EYhBNYM3zdY_z77gTEDwnxx8iTladVpopxp_26pJTnRBt_Oozot4BeoPi8XlHEayk0Baf33175fSq7qfag5iKE1dP9gA3drQiEgYNYBT0ne2ZrDUqFVT756412OsI0DfvXtX8CQ31s0Nj_kl6xhjq3i3WFozKItOJFEKm7Wm_PHJ8Uo35dNMoBhppbQDGfFr7-JXQMy-pIMD7ug" />
+                <span
+                    class="font-headline-md text-headline-md font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Grupo
+                    Iporre</span>
+            </div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="font-label-md text-label-md text-primary dark:text-primary-fixed-dim border-b-2 border-primary pb-1"
+                    href="#inicio">Inicio</a>
+                <a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors"
+                    href="#servicios">Servicios</a>
+                <a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors"
+                    href="#pilares">Pilares</a>
+                <a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors"
+                    href="#contacto">Contacto</a>
+            </div>
+            <button
+                class="bg-primary hover:bg-primary-container text-white px-6 py-2.5 rounded-lg font-label-md transition-all active:scale-95">
+                Cotizar Ahora
+            </button>
+        </div>
+    </nav>
+    <!-- Section 1: Hero -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="inicio">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0"
+            data-alt="A professional aerial view of San Isidro business district in Lima featuring modern glass skyscrapers and luxury apartment buildings during golden hour. The aesthetic is clean, corporate, and high-end with deep blues and crisp whites. The lighting is warm and inviting, emphasizing architectural precision and urban development in a sophisticated Peruvian setting."
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDwF3dRIkpLma4eWAiVV482YC4gukFRjWXNkdsD7jyUAtG0rqcaysbIDMwfzjerrxgnXE-J5VCNi44oyQzEPLgAx-c24eMxWIe1MGHicOB3dNYOYvcL08nI5FuJAtgqYq8rlcWyVJ3QyEdzO6NWVhe66AE2mZpg93QIpsFlJV7Z-qi2UXoTMdkWifIchhTfa5h9xatop6GsQBklD-R11W0VkqvaIYp_vUaaf517qFpDUC3ZQ66vwmrh')">
+        </div>
+        <div class="absolute inset-0 z-10 hero-gradient"></div>
+        <div class="relative z-20 max-w-container-max mx-auto px-gutter grid lg:grid-cols-2 gap-12 items-center">
+            <div class="text-white space-y-6">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+                    <span class="material-symbols-outlined text-[18px]">verified</span>
+                    <span class="font-label-md text-label-md uppercase tracking-wider">Expertos en Lima
+                        Metropolitana</span>
+                </div>
+                <h1 class="font-display-lg text-display-lg leading-tight md:text-[64px]">
+                    La gestion <br />
+                    <span class="text-primary-fixed-dim">que transforma</span>
+                    <br>
+                    <span class="text-primary-fixed-dim"> tu condominio</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-surface-variant max-w-xl">
+                    Administración integral de edificios y condominios. Brindamos soluciones eficientes con
+                    transparencia y respaldo para que solo disfrutes de tu hogar.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-secondary px-8 py-4 rounded-xl font-headline-md text-white shadow-lg hover:shadow-primary/40 transition-all hover:-translate-y-1"
+                        href="#contacto">
+                        Cotizar Ahora
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                    <a class="inline-flex items-center justify-center gap-2 border-2 border-white/30 bg-white/5 backdrop-blur-sm px-8 py-4 rounded-xl font-headline-md text-white hover:bg-white/10 transition-all"
+                        href="#servicios">
+                        Ver Servicios
+                    </a>
+                </div>
+            </div>
+            <!-- Hero Floating Element -->
+            <div class="hidden lg:block">
+                <div
+                    class="glass-card p-8 rounded-3xl border border-white/20 shadow-2xl space-y-6 animate-pulse-subtle">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">trending_up</span>
+                        </div>
+                        <div>
+                            <h4 class="font-headline-md text-deep-navy">Gestión de Calidad</h4>
+                            <p class="text-on-surface-variant text-sm">Control total de su inversión</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+                            <div class="h-full bg-primary w-[95%]"></div>
+                        </div>
+                        <div class="flex justify-between text-caption text-on-surface-variant font-bold uppercase">
+                            <span>Transparencia</span>
+                            <span>95% Eficiencia</span>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <div class="p-4 bg-primary/5 rounded-xl text-center">
+                            <span class="block text-headline-md font-bold text-primary">24/7</span>
+                            <span class="text-caption text-on-surface-variant">Atención</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 2: Servicios -->
+    <section class="py-stack-lg bg-surface" id="servicios">
+        <div class="max-w-container-max mx-auto px-gutter">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="font-headline-lg text-headline-lg text-deep-navy">Soluciones Integrales</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                    Nos encargamos de todos los aspectos operativos, legales y financieros para mantener la armonía y el
+                    valor de su propiedad.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Servicio 1: Administración -->
+                <div
+                    class="group bg-white p-8 rounded-2xl custom-shadow border border-surface-container hover:border-primary/30 transition-all hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-[32px]">corporate_fare</span>
+                    </div>
+                    <h3 class="font-headline-md text-deep-navy mb-4">Administración General</h3>
+                    <p class="text-on-surface-variant font-body-md leading-relaxed">
+                        Representación legal ante municipalidades, gestión de reglamentos internos y mediación de
+                        conflictos. Informes periódicos claros para la junta directiva.
+                    </p>
+                    <ul class="mt-6 space-y-2">
+                        <li class="flex items-center gap-2 text-label-md text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Gestión Documentaria
+                        </li>
+                        <li class="flex items-center gap-2 text-label-md text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Asambleas de Propietarios
+                        </li>
+                    </ul>
+                </div>
+                <!-- Servicio 2: Limpieza -->
+                <div
+                    class="group bg-white p-8 rounded-2xl custom-shadow border border-surface-container hover:border-secondary/30 transition-all hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-[32px]">cleaning_services</span>
+                    </div>
+                    <h3 class="font-headline-md text-deep-navy mb-4">Limpieza Profesional</h3>
+                    <p class="text-on-surface-variant font-body-md leading-relaxed">
+                        Mantenimiento diario de áreas comunes, pasillos, estacionamientos y fachadas con productos
+                        certificados y personal altamente capacitado.
+                    </p>
+                    <ul class="mt-6 space-y-2">
+                        <li class="flex items-center gap-2 text-label-md text-on-surface-variant">
+                            <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                            Desinfección de Áreas
+                        </li>
+                        <li class="flex items-center gap-2 text-label-md text-on-surface-variant">
+                            <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                            Uso de Productos Eco-friendly
+                        </li>
+                    </ul>
+                </div>
+                <!-- Servicio 3: Seguridad -->
+                <div
+                    class="group bg-white p-8 rounded-2xl custom-shadow border border-surface-container hover:border-tertiary/30 transition-all hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary mb-6 group-hover:bg-tertiary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-[32px]">security</span>
+                    </div>
+                    <h3 class="font-headline-md text-deep-navy mb-4">Vigilancia y Seguridad</h3>
+                    <p class="text-on-surface-variant font-body-md leading-relaxed">
+                        Control de accesos, monitoreo de cámaras y rondines permanentes. Personal uniformado y
+                        coordinado directamente con serenazgo local.
+                    </p>
+                    <ul class="mt-6 space-y-2">
+                        <li class="flex items-center gap-2 text-label-md text-on-surface-variant">
+                            <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                            Monitoreo 24/7
+                        </li>
+                        <li class="flex items-center gap-2 text-label-md text-on-surface-variant">
+                            <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                            Registro de Visitas
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <a class="text-primary font-label-md inline-flex items-center gap-2 hover:underline" href="#">
+                    Ver catálogo completo de servicios
+                    <span class="material-symbols-outlined">north_east</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Section 3: Confianza y Contacto -->
+    <section class="relative py-stack-lg overflow-hidden" id="pilares">
+        <!-- Decoration -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+        <div class="max-w-container-max mx-auto px-gutter relative z-10">
+            <!-- Pilares Bento Grid style -->
+            <div class="mb-24">
+                <h2 class="font-headline-lg text-headline-lg text-deep-navy text-center mb-16">Nuestros Pilares</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-primary text-white p-8 rounded-3xl space-y-4">
+                        <span class="material-symbols-outlined text-[40px]"
+                            style="font-variation-settings: 'FILL' 1;">stars</span>
+                        <h4 class="font-headline-md">Calidad</h4>
+                        <p class="opacity-90 font-body-md">Aplicamos estándares estrictos para mantener tu edificio en
+                            perfectas condiciones, reduciendo reparaciones costosas a largo plazo.</p>
+                    </div>
+                    <div class="bg-deep-navy text-white p-8 rounded-3xl space-y-4">
+                        <span class="material-symbols-outlined text-[40px]"
+                            style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                        <h4 class="font-headline-md">Profesionalismo</h4>
+                        <p class="opacity-90 font-body-md">Equipo multidisciplinario con ética y respeto, brindando un
+                            trato cercano y responsable a cada propietario.</p>
+                    </div>
+                    <div class="bg-secondary text-white p-8 rounded-3xl space-y-4">
+                        <span class="material-symbols-outlined text-[40px]"
+                            style="font-variation-settings: 'FILL' 1;">visibility</span>
+                        <h4 class="font-headline-md">Control</h4>
+                        <p class="opacity-90 font-body-md">Seguimiento detallado de finanzas, seguridad y cobranzas.
+                            Información accesible con total transparencia en cada operación.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Section -->
+            <section class="py-stack-lg bg-surface-container-low overflow-hidden" id="personal-capacitado">
+                <div class="max-w-container-max mx-auto px-gutter">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-primary/10 rounded-[40px] blur-2xl"></div>
+                            <img alt="Personal de limpieza profesional"
+                                class="relative w-full h-auto rounded-[40px] shadow-2xl object-cover"
+                                src="imagen_1.png" />
+                        </div>
+                        <div class="space-y-8">
+                            <div class="space-y-4">
+                                <h2 class="font-headline-lg text-headline-lg text-deep-navy">Personal Altamente
+                                    Capacitado</h2>
+                                <p class="font-body-lg text-on-surface-variant">Nuestro equipo de limpieza y
+                                    mantenimiento no solo está equipado con las mejores herramientas, sino que recibe
+                                    capacitación constante para garantizar la excelencia en cada rincón de su edificio.
+                                </p>
+                            </div>
+                            <div class="grid gap-6">
+                                <div class="flex gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                        <span class="material-symbols-outlined">cleaning_services</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-headline-md text-deep-navy text-[20px]">Limpieza Especializada
+                                        </h4>
+                                        <p class="text-on-surface-variant">Protocolos rigurosos de desinfección y
+                                            mantenimiento de áreas comunes.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+                                        <span class="material-symbols-outlined">eco</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-headline-md text-deep-navy text-[20px]">Productos Eco-friendly
+                                        </h4>
+                                        <p class="text-on-surface-variant">Cuidamos el medio ambiente y la salud de los
+                                            residentes con insumos certificados.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary shrink-0">
+                                        <span class="material-symbols-outlined">engineering</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-headline-md text-deep-navy text-[20px]">Mantenimiento Preventivo
+                                        </h4>
+                                        <p class="text-on-surface-variant">Identificamos y resolvemos problemas antes de
+                                            que se conviertan en gastos mayores.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-stack-lg bg-white overflow-hidden" id="seguridad-monitoreo">
+                <div class="max-w-container-max mx-auto px-gutter">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="order-2 lg:order-1 space-y-8">
+                            <div class="space-y-4">
+                                <h2 class="font-headline-lg text-headline-lg text-deep-navy">Seguridad y Monitoreo 24/7
+                                </h2>
+                                <p class="font-body-lg text-on-surface-variant">La tranquilidad de su familia es nuestra
+                                    prioridad. Implementamos sistemas de vigilancia avanzados y personal de seguridad
+                                    altamente alerta.</p>
+                            </div>
+                            <div class="space-y-6">
+                                <div class="p-6 bg-surface-container rounded-2xl border-l-4 border-secondary">
+                                    <h4 class="font-headline-md text-deep-navy text-[20px] mb-2">Vigilancia Activa</h4>
+                                    <p class="text-on-surface-variant">Personal uniformado con comunicación directa y
+                                        constante para una respuesta inmediata ante cualquier eventualidad.</p>
+                                </div>
+                                <div class="p-6 bg-surface-container rounded-2xl border-l-4 border-primary">
+                                    <h4 class="font-headline-md text-deep-navy text-[20px] mb-2">Control de Accesos</h4>
+                                    <p class="text-on-surface-variant">Registro riguroso de visitantes y proveedores
+                                        para mantener la integridad del condominio.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-1 lg:order-2 relative">
+                            <div class="absolute -inset-4 bg-secondary/10 rounded-[40px] blur-2xl"></div>
+                            <img alt="Personal de seguridad con radio"
+                                class="relative w-full h-auto rounded-[40px] shadow-2xl object-cover"
+                                src="imagen_2.png" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-stack-lg bg-surface-container-low overflow-hidden" id="mantenimiento-equipos">
+                <div class="max-w-container-max mx-auto px-gutter">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="relative order-1">
+                            <div class="absolute -inset-4 bg-primary/10 rounded-[40px] blur-2xl"></div>
+                            <img alt="Técnico inspeccionando equipos industriales"
+                                class="relative w-full h-auto rounded-[40px] shadow-2xl object-cover"
+                                src="imagen_3.png" />
+                        </div>
+                        <div class="space-y-8 order-2">
+                            <div class="space-y-4">
+                                <h2 class="font-headline-lg text-headline-lg text-deep-navy">Mantenimiento de equipos
+                                </h2>
+                                <p class="font-body-lg text-on-surface-variant">Trabajamos con los mejores proveedores
+                                    para garantizar el buen estado de bombas de agua, ascensores, intercomunicadores,
+                                    cámaras de seguridad, redes eléctricas, sistemas contra incendios y áreas comunes.
+                                    Protegemos tu inversión y brindamos seguridad y comodidad a todos.</p>
+                            </div>
+                            <div class="grid gap-6">
+                                <div class="flex gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                        <span class="material-symbols-outlined">settings_input_component</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-headline-md text-deep-navy text-[20px]">Sistemas Críticos</h4>
+                                        <p class="text-on-surface-variant">Supervisión técnica de ascensores, bombas y
+                                            sistemas contra incendios.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+                                        <span class="material-symbols-outlined">electrical_services</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-headline-md text-deep-navy text-[20px]">Redes Eléctricas</h4>
+                                        <p class="text-on-surface-variant">Mantenimiento preventivo de tableros y
+                                            luminarias de áreas comunes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="bg-white rounded-[40px] custom-shadow overflow-hidden border border-outline-variant/20"
+                id="contacto">
+                <div class="p-10 lg:p-16 space-y-10 bg-surface-container-low">
+                    <div class="mb-8 flex items-center gap-3">
+                        <img alt="Grupo Iporre Logo" class="h-24 w-auto object-contain"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpA75081giEUHVJv4o_-mOWjLXqDPiWVfnaN_5RPnufRWI24TnmQSLS_yoMv6irDPlQMfaoWNLqXTuQMMyKAOMaENjACiWmlMfdbtJQjiZrXnakXvvjAuPKxKld0STMWG4sc8PHix8VBbPtAaTsi7UtkmMPlIqzbE95-beudgjd2RgGycXxLqzl0iTg5KvIWjMdFWJAVnsgshMM_2Q7UZReAM3rge1CNz1AEEhp4-ELIOENUDeNTAztjhzpoIW3JflZA" />
+                        <span class="font-headline-md text-headline-md font-extrabold text-deep-navy">Grupo
+                            Iporre</span>
+                    </div>
+                    <div>
+                        <h2 class="font-headline-lg text-headline-lg text-deep-navy mb-4">¿Hablemos de tu edificio?</h2>
+                        <p class="font-body-md text-on-surface-variant">Estamos listos para brindarte la mejor asesoría
+                            en administración inmobiliaria. Contáctanos directamente con tu consulta.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-5">
+                            <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center">
+                                <img alt="WhatsApp" class="w-7 h-7" src="whatsapp.png" />
+                            </div>
+                            <div>
+                                <p class="text-caption text-on-surface-variant uppercase tracking-widest font-bold">
+                                    WhatsApp</p>
+                                <a class="text-headline-md font-bold text-deep-navy hover:text-primary transition-colors"
+                                    href="https://wa.me/51952364294" target="_blank">952 364 294</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-5">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined text-[28px]">mail</span>
+                            </div>
+                            <div>
+                                <p class="text-caption text-on-surface-variant uppercase tracking-widest font-bold">
+                                    Escríbenos</p>
+                                <a
+                                    class="text-headline-md font-bold text-deep-navy hover:text-primary transition-colors">
+                                    grupoiporre@hotmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-5">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-tertiary">
+                                <span class="material-symbols-outlined text-[28px]">location_on</span>
+                            </div>
+                            <div>
+                                <p class="text-caption text-on-surface-variant uppercase tracking-widest font-bold">
+                                    Ubicación</p>
+                                <p class="text-headline-md font-bold text-deep-navy">Toda Lima Metropolitana</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <p class="font-label-md text-on-surface-variant italic border-l-4 border-primary pl-4">
+                            “Tu edificio, nuestra responsabilidad”
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-deep-navy text-white pt-16 pb-8">
+        <div class="max-w-container-max mx-auto px-gutter">
+            <div class="grid md:grid-cols-4 gap-12 pb-12 border-b border-white/10">
+                <div class="md:col-span-2 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <img alt="Logo" class="h-10 w-10 rounded object-contain bg-white p-0.5"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn8V56wCkRBxRK34CwT89Ji13M6Ble-nWoK8j-QCCJrkrZoPTkxqcoBjelU9dWyhAKhM2rXEs3-QOH2p0t-WPH-i2m4zkVc_uBx2KuD6MkUsmizgOJnV5Tx0czXG35AysvrzEgbKsjPc-wMboA-s389MLW6gtVXkBlMdnIqBVO-hhv8_GHdkB8aUw7KrzNwU3rmQ-gN1eBSQFQyr8G8a__tLg6YN7gSeqzku8dl9fjOOk6NSK56hf4WLvVvO-j8NbD0Q" />
+                        <span class="font-headline-md text-headline-md">Grupo Iporre</span>
+                    </div>
+                    <p class="text-surface-variant font-body-md max-w-md">
+                        Nuestra misión es elevar la calidad de vida en los
+                        edificios de nuestra ciudad a través de una gestión profesional y transparente.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-label-md text-white mb-6 uppercase tracking-wider">Enlaces Rápidos</h5>
+                    <ul class="space-y-4">
+                        <li><a class="text-surface-variant/70 hover:text-white transition-colors"
+                                href="#">Privacidad</a></li>
+                        <li><a class="text-surface-variant/70 hover:text-white transition-colors" href="#">Términos</a>
+                        </li>
+                        <li><a class="text-surface-variant/70 hover:text-white transition-colors" href="#">Preguntas
+                                Frecuentes</a></li>
+                        <li><a class="text-surface-variant/70 hover:text-white transition-colors" href="#">Trabaja con
+                                nosotros</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-label-md text-white mb-6 uppercase tracking-wider">Síguenos</h5>
+                    <div class="flex gap-4">
+                        <a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary transition-all"
+                            href="#">
+                            <span class="material-symbols-outlined text-[20px]">public</span>
+                        </a>
+                        <a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary transition-all"
+                            href="#">
+                            <span class="material-symbols-outlined text-[20px]">share</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+                <p class="text-surface-variant/70 text-body-md">
+                    © 2026 Grupo Iporre - Todos los derechos reservados.
+                </p>
+                <div class="flex gap-6">
+                    <span class="text-caption text-surface-variant/50">Diseñado con excelencia</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Smooth reveal on scroll interaction
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
